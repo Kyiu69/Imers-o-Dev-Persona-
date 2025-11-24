@@ -1,0 +1,696 @@
+* {
+    box-sizing: border-box; /* Garante que padding e border não aumentem o tamanho total do elemento */
+
+}
+
+:root {
+    --primary-color: #e8eb23; /* Cor primária (amarelo) */
+    --p5-red: #d10000; /* Vermelho P5 */
+    --p5-yellow: #ffd700; /* Amarelo P5 */
+
+    --secondary-color: #fafafa; /* Cor secundária (branco) */
+    --tertiary-color: #e8eb23; /* Cor terciária (amarelo por padrão) */
+    --bg-color: #4c74ec; /* Cor de fundo (azul) */
+
+}
+
+body {
+    margin: 0; /* Remove a margem padrão do body */
+    color: var(--secondary-color); /* Define a cor do texto padrão usando uma variável */
+    font-family: "Quicksand", sans-serif; /* Define a família da fonte */
+    background-color: transparent; /* O fundo agora é controlado pelo pseudo-elemento */
+}
+
+/* NOVO: Fundo fixo do Velvet Room, agora no HTML para cobrir 100% da tela */
+html::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/img/Velvet.jpg'); /* Caminho para sua imagem */
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px) brightness(0.6); /* Desfoque e escurecimento aumentados */
+    z-index: -2; /* Garante que fique atrás de tudo */
+}
+
+/* --- ANIMAÇÃO DE FUNDO PARA PERSONA Q --- */
+
+/* Container para as bolhas, para não poluir o body */
+.pq-bubbles-container {
+    position: absolute; /* Agora posicionado dentro do card */
+    top: 0; left: 0; width: 100%; height: 100%;
+    overflow: hidden;
+    z-index: 0; /* Fica dentro do card, mas atrás do conteúdo */
+    clip-path: inherit; /* Herda o recorte do card pai */
+}
+
+/* Estilo base da bolha animada */
+.pq-bubble {
+    position: absolute;
+    background-color: #00BFFF; /* Azul P3 */
+    border-radius: 50%;
+    opacity: 0; /* Começa invisível */
+    animation: float-and-fade 8s infinite ease-in-out; /* Animação única e mais longa */
+    width: 150px; /* Tamanho aumentado */
+    height: 150px;
+    filter: blur(5px); /* Efeito de brilho suave */
+}
+
+/* Classes de cores para as bolhas */
+.bubble-red { background-color: #d10000; }
+.bubble-blue { background-color: #00BFFF; }
+.bubble-yellow { background-color: #FFD700; }
+.bubble-pink { background-color: #ff91a4; }
+
+/* Animação única para flutuar e esmaecer */
+@keyframes float-and-fade {
+    0%, 100% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+    50% {
+        opacity: 0.6; /* Não totalmente opaco para um efeito mais sutil */
+        transform: translateY(-20px) scale(1);
+    }
+}
+
+/* Nova animação para trocar a cor dos textos */
+@keyframes pq-text-swap {
+    0%, 45% {
+        background-color: #FFD700; /* Amarelo P4 */
+    }
+    50%, 95% {
+        background-color: #00BFFF; /* Azul P3 */
+    }
+    100% {
+        background-color: #FFD700; /* Volta ao início para um loop suave */
+    }
+}
+
+/* --- ANIMAÇÃO DE FUNDO PARA TODOS OS PERSONAS --- */
+@keyframes all-personas-bg-swap {
+    0%, 20% {
+        background-color: #d10000; /* Vermelho P5 */
+    }
+    25%, 49% {
+        background-color: #FFD700; /* Amarelo P4 */
+    }
+    50%, 74% {
+        background-color: #00BFFF; /* Azul P3 */
+    }
+    75%, 99% {
+        background-color: #ff91a4; /* Rosa P3P FEMC */
+    }
+    100% {
+        background-color: #d10000; /* Volta para o Vermelho P5 para fechar o ciclo */
+    }
+}
+
+/* Aplica a animação de texto quando o tema PQ estiver ativo */
+.p5-info-card.pq-theme-active {
+    /* Reativa a animação que alterna entre as cores de P3 e P4 */
+    animation: pq-text-swap 12s infinite;
+    transition: background-color 1.5s ease;
+}
+
+/* Aplica a animação de fundo para o tema PQ2 */
+.p5-info-card.pq2-theme-active {
+    /* Reativa a animação de troca de cores */
+    animation: all-personas-bg-swap 20s infinite; /* 20s = 5s por cor */
+    transition: background-color 1.5s ease;
+}
+
+header {
+    padding: 2rem 1rem; /* Espaçamento interno (2rem em cima/baixo, 1rem nos lados) */
+    display: flex; /* Habilita o layout flexbox */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    justify-content: space-around; /* Distribui os itens com espaço ao redor */
+    position: sticky; /* Mantém o cabeçalho fixo no topo ao rolar a página */
+    top: 0; /* Posição do topo quando sticky */
+    background: var(--bg-color); /* Cor de fundo do cabeçalho */
+    z-index: 100; /* Define a ordem de empilhamento para ficar sobre outros elementos */
+    border-bottom: 1px solid var(--tertiary-color); /* Adiciona uma borda inferior com cor de destaque */
+    gap: 1rem; /* Espaçamento entre os elementos flex */
+}
+
+header h1 {
+    font-size: 1.5rem; /* Tamanho da fonte */
+    margin: 0; /* Remove a margem padrão */
+    font-weight: 500; /* Peso da fonte (médio) */
+    white-space: nowrap; /* Impede a quebra de linha do texto */
+}
+
+main {
+    overflow-y: scroll; /* Adiciona uma barra de rolagem vertical se o conteúdo exceder a altura */
+    max-width: 80rem; /* Largura máxima do conteúdo principal */
+    margin: 0 auto; /* Centraliza o conteúdo principal horizontalmente */
+    margin-top: 2rem; /* Margem no topo */
+    height: calc(100vh - 10rem - 4rem); /* Calcula a altura para preencher o espaço restante da tela */
+}
+
+article a {
+    color: var(--tertiary-color); /* Cor do link (alterado para garantir contraste) */
+    text-decoration: none; /* Remove o sublinhado padrão */
+    font-weight: 200; /* Peso da fonte */
+}
+
+article a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+.footer {
+    position: absolute; /* Posicionamento absoluto em relação ao elemento pai posicionado */
+    bottom: 0; /* Alinha na parte inferior */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Largura total */
+    color: var(--tertiary-color); /* Cor do texto */
+    background-color: var(--bg-color); /* Cor de fundo */
+    padding: 15px 20px; /* Espaçamento interno */
+    border-top: 1px solid #3c4043; /* Borda superior */
+    font-size: 0.8rem; /* Tamanho da fonte */
+}
+
+.footer-location {
+    color: #9aa0a6; /* Cor do texto */
+    margin-bottom: 10px; /* Margem inferior */
+}
+
+.footer-links {
+    list-style: none; /* Remove os marcadores da lista */
+    display: flex; /* Habilita o layout flexbox */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 15px; /* Espaçamento entre os links */
+}
+
+.footer-links a {
+    color: var(--secondary-color); /* Cor do link */
+    text-decoration: none; /* Remove o sublinhado */
+    transition: color 0.2s; /* Transição suave para a cor */
+}
+
+.footer-links a:hover {
+    color: var(--accent-color); /* Muda a cor do link ao passar o mouse (variável não definida) */
+    color: var(--tertiary-color); /* Muda a cor do link ao passar o mouse */
+}
+
+@media (max-width: 768px) {
+    header { /* Estilos para telas com largura máxima de 768px */
+        flex-direction: column; /* Organiza os itens do cabeçalho em coluna */
+        padding: 1rem; /* Reduz o espaçamento interno */
+    }
+
+    header h1 { /* Estilos para o h1 no cabeçalho em telas menores */
+        text-align: center; /* Centraliza o texto */
+        margin-bottom: 1rem; /* Adiciona margem inferior */
+    }
+
+    div input { /* Estilos para o input em telas menores */
+        width: 90vw; /* Largura baseada na largura da viewport */
+        font-size: 1.2rem; /* Reduz o tamanho da fonte */
+    }
+
+    main { /* Estilos para o main em telas menores */
+        padding: 0 1rem; /* Adiciona espaçamento lateral */
+    }
+
+    article:hover { /* Estilos para o article em telas menores */
+        transform: none; /* Remove o efeito de escala ao passar o mouse */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 { /* Estilos para o h1 em telas com largura máxima de 480px */
+        font-size: 1rem; /* Reduz ainda mais o tamanho da fonte */
+        max-width: 70%; /* Define uma largura máxima */
+        word-wrap: break-word; /* Permite a quebra de palavras longas */
+    }
+
+    div input, /* Estilos para o input e seu placeholder em telas muito pequenas */
+    div input::placeholder {
+        font-size: 1rem; /* Reduz o tamanho da fonte */
+    }
+
+    article h2 { /* Estilos para o h2 do article em telas muito pequenas */
+        font-size: 1.3rem; /* Reduz o tamanho da fonte */
+    }
+
+    div { /* Estilos para a div do cabeçalho em telas muito pequenas */
+        display: flex; /* Habilita flexbox */
+        align-items: center; /* Alinha itens ao centro */
+        justify-content: center; /* Centraliza itens */
+        flex-direction: column; /* Organiza em coluna */
+        gap: 0.5rem; /* Espaçamento entre os itens */
+    }
+
+    .footer { /* Estilos para o rodapé em telas muito pequenas */
+        display: none; /* Oculta o rodapé */
+    }
+
+    button { /* Estilos para o botão em telas muito pequenas */
+        margin-top: 1rem; /* Adiciona margem no topo */
+    }
+}
+
+/* Estilos para o container das imagens */
+.image-container {
+    position: absolute; /* Posição absoluta dentro do card */
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 100%;
+}
+
+.game-logo-img {
+    max-height: 250px; /* Define uma altura máxima para o logo */
+    width: auto;
+    display: block;
+    margin: 0 auto 0 80px; /* Desloca o logo para a esquerda */
+    transition: margin-left 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5)); /* Adiciona sombra para profundidade */
+}
+
+/* Estiliza a imagem do protagonista */
+.protagonista-img {
+    position: absolute; /* Permite que a imagem flutue sobre outros elementos */
+    right: 7px; /* ANCORA na direita com um deslocamento para centralizar melhor */
+    bottom: -20px;
+    transform: rotate(3deg) skewX(10deg); /* Desinclina a imagem */
+    width: 320px;       /* Aumenta a largura do protagonista */
+    height: 320px;      /* Aumenta a altura do protagonista */
+    object-fit: contain; /* Garante que a imagem caiba no espaço sem distorcer */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Adiciona uma transição suave para a sombra */
+    filter: drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.5)); /* Sombra projetada para efeito 3D */
+}
+
+.protagonista-img:hover {
+    transform: scale(1.1); /* Aumenta um pouco a imagem ao passar o mouse */
+}
+
+/* Estilos para múltiplos protagonistas */
+.protagonista-img-left, .protagonista-img-right {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.5));
+    /* Desinclina e prepara para o posicionamento */
+    bottom: 0;
+    transform: rotate(3deg) skewX(10deg);
+}
+
+.protagonista-img-left {
+    /* Volta ao posicionamento fixo e confiável */
+    right: 150px;
+}
+
+.protagonista-img-right {
+    /* Volta ao posicionamento fixo e confiável */
+    right: 0;
+}
+
+/* Estilos para os 4 protagonistas do Persona Q2 */
+.protagonista-multi {
+    position: absolute;
+    width: 250px; /* Tamanho um pouco menor para caberem todos */
+    height: 250px;
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.5));
+    bottom: 0;
+    transform: rotate(3deg) skewX(10deg); /* Desinclina a imagem */
+}
+
+.protagonista-multi-1 {
+    left: -80px; /* Posições fixas que funcionavam melhor */
+    bottom: 20px;
+}
+.protagonista-multi-2 {
+    left: 110px;
+}
+.protagonista-multi-3 {
+    right: 120px;
+}
+.protagonista-multi-4 {
+    right: -20px;
+    bottom: 20px;
+}
+
+/* ================================================= */
+/* ESTILO BASE DO CARD (ADAPTAÇÃO QUADRADA P5)      */
+/* ================================================= */
+
+.p5-info-card {
+  --card-bg-color: #d10000; /* Padrão: Vermelho P5 */
+  --card-text-color: #fafafa; /* Padrão: Branco */
+
+  position: relative;
+  width: 95%;
+  max-width: 800px;
+  min-height: 480px; /* AUMENTADO: Mais altura para os personagens e conteúdo */
+  margin: 40px auto;
+  box-sizing: border-box;
+  
+  /* O fundo e a cor do texto são aplicados diretamente */
+  /* Uso das variáveis de cor */
+  background: transparent; /* O fundo agora é controlado pelo ::before */
+  color: var(--card-text-color);
+  
+  /* Borda e Sombreamento */
+  border: none; /* A borda será aplicada no ::before */
+  filter: drop-shadow(8px 8px 0px rgba(0,0,0,0.4));
+  
+  /* 📐 TRANSFORMAÇÕES: A Inclinação e Rotação Clássica do P5 */
+  transform: rotate(-3deg) skewX(-10deg);
+  transition: all 0.3s ease;
+}
+
+/* NOVO: Pseudo-elemento para criar a forma sem cortar o conteúdo */
+.p5-info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Fica atrás do conteúdo principal */
+  /* Aplica o fundo, a borda e o recorte aqui */
+  background: var(--card-bg-color);
+  border: 4px solid var(--card-text-color);
+  clip-path: polygon(0% 5%, 90% 0%, 100% 95%, 5% 100%);
+  transition: background-color 1s ease; /* Para animar a cor de fundo */
+}
+
+/* 🌟 ANIMAÇÃO ESTILOSA NO HOVER 🌟 */
+.p5-info-card:hover {
+  /* Leve desinclinação e aumento para o efeito "pulo" P5 */
+  transform: rotate(-2deg) skewX(-8deg) scale(1.01);
+  filter: drop-shadow(10px 10px 0px rgba(0,0,0,0.5));
+}
+
+/* ================================================= */
+/* Conteúdo Interno */
+/* ================================================= */
+
+.p5-card-content {
+  position: relative; /* Necessário para o z-index funcionar */
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  
+  /* 📐 DESINCLINAR: Endireita o conteúdo para que o texto e as imagens internas fiquem retos */
+  transform: rotate(3deg) skewX(10deg); 
+  
+  /* Estilo do Texto */
+  font-family: 'Arial', sans-serif; /* Mude para sua fonte de preferência */
+  z-index: 1; /* Garante que o conteúdo fique sobre as bolhas */
+  line-height: 1.5;
+}
+
+.p5-card-content h3 {
+  font-size: 2em;
+  text-transform: uppercase;
+  color: var(--card-text-color);
+  margin-top: 0;
+  font-weight: 600;
+}
+
+.p5-card-content p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--card-text-color);
+    max-width: 50%; /* Limita a largura do texto para não sobrepor as imagens */
+}
+
+.p5-card-content p strong {
+    color: var(--card-text-color); /* Cor do texto em negrito */
+    font-weight: 900;
+}
+
+/* Animação de revelação do card */
+@keyframes revealBlock {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(101%);
+    }
+}
+
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.card-reveal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--reveal-color, var(--primary-color)); /* Usa a cor do jogo ou um padrão */
+    z-index: 2;
+    animation: revealBlock 0.8s ease-in-out forwards;
+    animation-delay: inherit; /* Herda o delay do elemento pai */
+}
+
+/* ================================================= */
+/* BOTÃO VOLTAR AO TOPO (P5 STYLE)                */
+/* ================================================= */
+
+/* Contêiner principal do botão */
+.p5-scroll-up-btn {
+    /* Posição e Dimensão */
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
+    cursor: pointer;
+    padding: 0;
+
+    /* Estilo base - agora usa a variável primária para ser dinâmico */
+    background-color: var(--primary-color);
+    border: 3px solid #000; /* Borda preta */
+    outline: none;
+
+    /* Inicialmente invisível e inclinado (como um elemento da UI P5) */
+    opacity: 0;
+    visibility: hidden;
+    transform: rotate(3deg) skewX(-10deg);
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out, transform 0.3s ease-in-out, background-color 1s ease; /* Transição de cor suave */
+
+    /* Filtro para o sombreamento */
+    filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.5));
+
+    /* Recorte da forma da seta (o mais próximo que conseguimos em CSS puro) */
+    clip-path: polygon(
+        0% 30%,
+        50% 0%,
+        100% 30%,
+        100% 100%,
+        0% 100%
+    );
+}
+
+/* 🌟 ANIMAÇÃO ESTILOSA NO HOVER (Efeito de Deslizamento/Rebelião P5) 🌟 */
+.p5-scroll-up-btn:hover {
+    /* O botão volta à vertical e move-se para cima, como se estivesse saltando */
+    transform: translateY(-10px) rotate(0deg) skewX(0deg) scale(1.05);
+    background-color: #d60000; /* Vira Vermelho P5 no hover para maior contraste */
+    filter: drop-shadow(6px 6px 0px rgba(0,0,0,0.5));
+}
+
+/* Estado visível (para o JavaScript) */
+.p5-scroll-up-btn.show {
+    opacity: 1;
+    visibility: visible;
+    /* Retorna à inclinação original ao aparecer */
+    transform: rotate(3deg) skewX(-10deg) scale(1);
+}
+
+/* ------------------------------------------- */
+/* Flecha Interna (Pseudo-elemento)            */
+/* ------------------------------------------- */
+
+/* Adiciona um triângulo branco no centro para simular a ponta da seta */
+.p5-scroll-up-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza */
+    
+    /* Estilo do triângulo que aponta para cima */
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #fff; /* Ponta da seta branca */
+    transition: border-bottom 0.3s ease;
+}
+
+/* Inverte a cor da ponta no hover */
+.p5-scroll-up-btn:hover::before {
+    border-bottom: 20px solid #000; /* Ponta preta no hover */
+}
+
+/* --- ESTILOS DA NOVA BARRA DE BUSCA (PERSONA 5) --- */
+
+/* O container da barra de pesquisa dentro do header */
+.p5-search-box {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 60px;
+    font-family: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif; /* Fonte estilo P5 */
+    /* A inclinação clássica do Persona 5 */
+    transform: rotate(-3deg) skewX(-10deg); 
+    transition: transform 0.2s ease;
+    filter: drop-shadow(5px 5px 0px rgba(0,0,0,0.3));
+}
+
+/* Efeito de "pulo" ao passar o mouse (UI do Persona é animada) */
+.p5-search-box:hover {
+    transform: rotate(-2deg) skewX(-10deg) scale(1.02);
+}
+
+/* O campo de input real */
+.p5-input {
+    width: 100%;
+    height: 100%;
+    background: #000; /* Fundo preto */
+    color: #fff;      /* Texto branco */
+    border: 3px solid #fff; /* Borda branca grossa */
+    font-size: 18px;
+    text-transform: uppercase;
+    padding-left: 60px; /* Espaço para não escrever em cima do recorte */
+    padding-right: 20px;
+    outline: none;
+    box-sizing: border-box;
+    
+    /* O RECORTE MÁGICO: Cria a forma irregular na esquerda e direita */
+    clip-path: polygon(
+        0% 0%,       /* Topo Esquerda */
+        100% 2%,     /* Topo Direita (levemente descido) */
+        98% 100%,    /* Baixo Direita */
+        10% 100%,    /* Baixo Esquerda (início do recorte) */
+        0% 80%,      /* Dente 1 */
+        5% 60%,      /* Dente 2 (volta) */
+        0% 40%       /* Dente 3 */
+    );
+}
+
+/* Placeholder estilizado */
+.p5-input::placeholder {
+    color: #ccc;
+    font-style: italic;
+}
+
+/* O ícone ou texto de "Search" simulado como um adesivo */
+.p5-label {
+    position: absolute;
+    left: -15px;
+    top: -15px;
+    background: white;
+    color: black;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid black;
+    transform: skewX(10deg) rotate(-5deg);
+    pointer-events: none; /* Deixa clicar através dele */
+    z-index: 10;
+}
+
+/* Botão de ir (estilo seta) */
+.p5-btn {
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    background: var(--primary-color); /* Cor de fundo amarela */
+    border: 2px solid black;
+    color: black; /* Cor do ícone preta para contraste */
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 1s ease, color 0.2s; /* Transição de cor suave */
+}
+
+.p5-btn:hover {
+    background: #d10000; /* Vermelho Persona no hover */
+    color: white;
+}
+
+/* --- ANIMAÇÃO PARA AS BOLHAS --- */
+@keyframes floatBubble {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+/* --- ESTILOS PARA AS BOLHAS DE VARIAÇÃO --- */
+
+.variations-container {
+    position: absolute;
+    top: 10px;  /* Ajustado para a nova estrutura */
+    right: 5px; /* Ajustado para a nova estrutura */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10; /* Z-index alto para garantir que fique acima de tudo no card */
+}
+
+.variation-bubble {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    background-size: contain; /* Ajusta a imagem para caber completamente na bolha */
+    background-repeat: no-repeat; /* Impede que a imagem se repita */
+    background-position: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: floatBubble 2s ease-in-out infinite alternate; /* Aplica a animação de flutuação */
+}
+
+.variation-bubble:hover {
+    transform: scale(1.15) !important; /* Garante que o hover sobreponha a animação */
+    animation-play-state: paused; /* Pausa a animação no hover para o scale funcionar bem */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Estilo para a bolha de "voltar ao padrão" */
+.back-to-default-bubble {
+    background-color: #fff;
+    background-image: none !important; /* Remove a imagem de fundo */
+    color: #333;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

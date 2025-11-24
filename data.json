@@ -1,0 +1,243 @@
+[
+  {
+    "nome": "Persona 1",
+    "descricao": "O Persona 1 é um spin-off da franquia SMT e foi o primeiro Persona lançado.",
+    "data_criacao": "1996",
+    "link": "https://megamitensei.fandom.com/wiki/Revelations:_Persona",
+    "tags": ["JRPG", "PS1", "School Life", "Dungeon Crawler"],
+    "protagonista": "/img/P1P.png",
+    "imagem": "/img/PersonaPSP.png",
+    "hlb": "https://howlongtobeat.com/game/7773",
+    "Consoles": "Playstation 1, PSP",
+    "theme": {
+      "primary": "#8A2BE2",
+      "secondary": "#FFC0CB",
+      "tertiary": "#e8eb23",
+      "bg": "#8A2BE2"
+    },
+    "variations": [
+      {
+        "nome": "Shin Megami Tensei if...",
+        "descricao": "O precursor espiritual que estabeleceu o cenário de escola japonesa e a temática de portais dimensionais.",
+        "data_criacao": "1994",
+        "link": "https://megamitensei.fandom.com/wiki/Shin_Megami_Tensei_if...",
+        "tags": ["Precursor", "SMT", "School Setting", "Super Famicom"],
+        "hlb": "https://howlongtobeat.com/game/8423",
+        "imagem": "/img/SMTIF.png",
+        "protagonista": "/img/SMTP.png",
+        "Consoles": "Super Famicom",
+        "bubble_icon": "/img/SMTIF.png"
+      }
+    ]
+  },
+  {
+    "nome": "Persona 2: Innocent Sin",
+    "descricao": "Uma saga dividida onde rumores se tornam realidade, ameaçando o Japão. Acompanhe Tatsuya Suou e sua equipe em uma narrativa profunda sobre o peso da memória e do destino. Conhecido por seu sistema de comunicação com demônios.",
+    "data_criacao": "1999",
+    "link": "https://megamitensei.fandom.com/wiki/Persona_2:_Innocent_Sin",
+    "tags": ["Classic JRPG", "Rumor System", "High School Drama", "PS1"],
+    "protagonista": "/img/P2I.png",
+    "imagem": "/img/Persona2I.svg.png",
+    "hlb": "https://howlongtobeat.com/game/6972",
+    "Consoles": "Playstation 1, PSP",
+    "theme": {
+      "primary": "#FFA500",
+      "secondary": "#fafafa",
+      "tertiary": "#FF0000",
+      "bg": "#FFA500"
+    },
+    "variations": [
+      {
+        "nome": "Persona 2: Eternal Punishment",
+        "descricao": "A segunda metade da duologia, focada em Maya Amano, explorando as consequências cataclísmicas dos eventos de Innocent Sin.",
+        "data_criacao": "2000",
+        "link": "https://megamitensei.fandom.com/wiki/Persona_2:_Eternal_Punishment",
+        "tags": ["PS1", "Dark Narrative", "Psychological Horror", "JRPG"],
+        "protagonista": "/img/P2E.png",
+        "imagem": "/img/Persona2E.png",
+        "hlb": "https://howlongtobeat.com/game/6971",
+        "Consoles": "Playstation 1, PSP",
+        "bubble_icon": "/img/Persona2E.png"
+      }
+    ]
+  },
+  {
+    "nome": "Persona 3, FES e Portable",
+    "descricao": "Persona 3 modernizou a franquia com Social Links e a temática da Dark Hour.",
+    "data_criacao": "2006",
+    "link": "https://megamitensei.fandom.com/wiki/Persona_3",
+    "tags": ["PS2", "Dark Hour", "Social Link", "JRPG"],
+    "protagonista": "/img/P3PR.png",
+    "imagem": "/img/Persona3.png",
+    "hlb": "https://howlongtobeat.com/game/8440",
+    "Consoles": "Playstation 2,PSP,PC",
+    "theme": {
+      "primary": "#00BFFF",
+      "secondary": "#fafafa",
+      "tertiary": "#0306db",
+      "bg": "#00BFFF"
+    },
+    "variations": [
+      {
+        "nome": "Persona 3 Reload",
+        "descricao": "O remake completo de P3, reconstruído com o motor gráfico e melhorias de qualidade de vida de Persona 5.",
+        "data_criacao": "2024",
+        "link": "https://megamitensei.fandom.com/wiki/Persona_3_Reload",
+        "tags": ["Remake", "Modern JRPG", "Next Gen", "S.E.E.S."],
+        "hlb": "https://howlongtobeat.com/game/129805",
+        "protagonista": "/img/P3P.png",
+        "imagem": "/img/P3RLogo.png",
+        "Consoles": "PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, PC",
+        "bubble_icon": "/img/P3RLOGO.png"
+      },
+      {
+        "nome": "Persona 3: Dancing in Moonlight",
+        "descricao": "Focado no elenco de P3, ambientado em um sonho induzido pelo Velvet Room. Celebra o legado do grupo S.E.E.S.",
+        "data_criacao": "2018",
+        "link": "https://megamitensei.fandom.com/wiki/Persona_3:_Dancing_in_Moonlight",
+        "tags": ["Rhythm Game", "Music", "Spin-off", "PS4"],
+        "hlb": "https://howlongtobeat.com/game/47901",
+        "imagem": "/img/P3dlogo.png",
+        "protagonista": "/img/P3PD.png",
+        "Consoles": "PlayStation 4, PlayStation Vita",
+        "bubble_icon": "/img/P3dlogo.png"
+      }
+    ]
+  },
+  {
+    "nome": "Persona 4, Golden",
+    "descricao": "Persona 4 acompanha a investigação de um mistério de assassinatos em uma cidade rural.",
+    "data_criacao": "2008",
+    "link": "https://megamitensei.fandom.com/wiki/Persona_4_Golden",
+    "tags": ["Social Simulation", "Murder Mystery", "PS Vita", "JRPG"],
+    "protagonista": "/img/P4P.png",
+    "imagem": "/img/P4GLogo.png",
+    "hlb": "https://howlongtobeat.com/game/6974",
+    "Consoles": "Playstation 2, Nintendo Switch, PC, PlayStation 4, PlayStation Vita, Xbox One, Xbox Series X/S",
+    "theme": {
+      "primary": "#FFD700",
+      "secondary": "#000",
+      "tertiary": "#008000",
+      "bg": "#FFD700"
+    },
+    "variations": [
+      {
+        "nome": "Persona 4 Arena Ultimax",
+        "descricao": "A continuação direta de Arena, aumentando o elenco e a narrativa. Introduz o misterioso Sho Minazuki.",
+        "data_criacao": "2014",
+        "link": "https://megamitensei.fandom.com/wiki/Persona_4_Arena_Ultimax",
+        "tags": ["Fighting Game", "Ultimax", "Crossover", "Competitive"],
+        "hlb": "https://howlongtobeat.com/game/21257",
+        "imagem": "/img/P4AU.png",
+        "protagonista": "/img/P4A.png",
+        "Consoles": "PlayStation 3, Xbox 360, PlayStation 4, Nintendo Switch, PC",
+        "bubble_icon": "/img/P4AU.png"
+      },
+      {
+        "nome": "Persona 4: Dancing All Night",
+        "descricao": "O primeiro jogo de ritmo da série. A Equipe de Investigação precisa salvar idols de um 'Midnight Stage' através da dança.",
+        "data_criacao": "2015",
+        "link": "https://megamitensei.fandom.com/wiki/Persona_4:_Dancing_All_Night",
+        "tags": ["Rhythm Game", "Music", "Spin-off", "PS Vita"],
+        "hlb": "https://howlongtobeat.com/game/27669",
+        "imagem": "/img/P4DLogo.png",
+        "protagonista": "/img/P4DP.png",
+        "Consoles": "PlayStation Vita, PlayStation 4",
+        "bubble_icon": "/img/P4DLogo.png"
+      },
+      {
+        "nome": "Persona Q: Shadow of the Labyrinth",
+        "descricao": "Um crossover encantador de P3 e P4 no estilo 'Etrian Odyssey', com chibis adoráveis e interação humorística.",
+        "data_criacao": "2014",
+        "link": "https://megamitensei.fandom.com/wiki/Persona_Q:_Shadow_of_the_Labyrinth",
+        "tags": ["Dungeon Crawler", "Crossover", "3DS", "Strategy RPG"],
+        "hlb": "https://howlongtobeat.com/game/18709",
+        "imagem": "/img/PQ_Logo.png",
+        "Consoles": "Nintendo 3DS",
+        "theme": "pq",
+        "bubble_icon": "/img/PQ_Logo.png",
+        "protagonistas": ["/img/PQ.png", "/img/PQ2.png"]
+      }
+    ]
+  },
+  {
+    "nome": "Persona 5, Royal",
+    "descricao": "A obra-prima moderna do estilo e da rebelião. Esta expansão de P5 adicionou um semestre escolar completo, novos Confidants e um arco final de história transformador, elevando a experiência dos Phantom Thieves.",
+    "data_criacao": "2019",
+    "link": "https://megamitensei.fandom.com/wiki/Persona_5_Royal",
+    "tags": ["Modern JRPG", "Aesthetic", "Phantom Thieves", "Royal"],
+    "protagonista": "/img/P5P.png",
+    "imagem": "/img/Persona5.png",
+    "hlb": "https://howlongtobeat.com/game/15221",
+    "Consoles": "PlayStation 3, PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, Nintendo Switch, PC",
+    "theme": {
+      "primary": "#d10000",
+      "secondary": "#fafafa",
+      "tertiary": "#000",
+      "bg": "#d10000"
+    },
+    "variations": [
+      {
+        "nome": "Persona 5 Strikers",
+        "descricao": "Uma sequência direta que transforma o combate por turnos em ação Musou fluida, em uma viagem de verão pelo Japão.",
+        "data_criacao": "2020",
+        "link": "https://megamitensei.fandom.com/wiki/Persona_5_Strikers",
+        "tags": ["Action RPG", "Musou", "Direct Sequel", "Road Trip"],
+        "hlb": "https://howlongtobeat.com/game/72069",
+        "imagem": "/img/P5S_Logo.png",
+        "protagonista": "/img/P5S_Joker.png",
+        "Consoles": "PlayStation 4, Nintendo Switch, PC",
+        "bubble_icon": "/img/P5S_Logo.png"
+      },
+      {
+        "nome": "Persona 5 Tactica",
+        "descricao": "Uma incursão no gênero de RPG Tático (SRPG), onde os Phantom Thieves se unem a um novo aliado revolucionário.",
+        "data_criacao": "2023",
+        "link": "https://megamitensei.fandom.com/wiki/Persona_5_Tactica",
+        "tags": ["Strategy RPG", "Tactics", "Spin-off", "SRPG"],
+        "hlb": "https://howlongtobeat.com/game/138444",
+        "imagem": "/img/P5T_Logo.png",
+        "protagonista": "/img/P5TJoker.png",
+        "Consoles": "PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, Nintendo Switch, PC",
+        "bubble_icon": "/img/P5T_Logo.png"
+      },
+      {
+        "nome": "Persona 5: Dancing in Starlight",
+        "descricao": "Os Phantom Thieves brilham neste jogo de ritmo, onde o estilo é tão importante quanto o ritmo.",
+        "data_criacao": "2018",
+        "link": "https://megamitensei.fandom.com/wiki/Persona_5:_Dancing_in_Starlight",
+        "tags": ["Rhythm Game", "Music", "Spin-off", "PS4"],
+        "hlb": "https://howlongtobeat.com/game/47902",
+        "imagem": "/img/P5D_Logo.png",
+        "protagonista": "/img/P5PD.png",
+        "Consoles": "PlayStation 4, PlayStation Vita",
+        "bubble_icon": "/img/P5D_Logo.png"
+      },
+      {
+        "nome": "Persona Q2: New Cinema Labyrinth",
+        "descricao": "Os Phantom Thieves juntam-se aos elencos de P3 e P4 em uma série de filmes distorcidos.",
+        "data_criacao": "2018",
+        "link": "https://megamitensei.fandom.com/wiki/Persona_Q2:_New_Cinema_Labyrinth",
+        "tags": ["Dungeon Crawler", "Crossover", "3DS", "Exploration"],
+        "hlb": "https://howlongtobeat.com/game/62414",
+        "imagem": "/img/PQ2_Logo.png",
+        "Consoles": "Nintendo 3DS",
+        "bubble_icon": "/img/PQ2_Logo.png",
+        "theme": "pq2",
+        "protagonistas": ["/img/PQ.png", "/img/PQ2.png", "/img/PersonaQ3.png", "/img/PQ4.png"]
+      },
+      {
+        "nome": "Persona 5: The Phantom X",
+        "descricao": "Um título mobile exclusivo para o mercado asiático, com uma nova história e elenco de Phantom Thieves.",
+        "data_criacao": "2024",
+        "link": "https://megamitensei.fandom.com/wiki/Persona_5:_The_Phantom_X",
+        "tags": ["Mobile Game", "Spin-off", "China Exclusive", "JRPG"],
+        "hlb": "https://howlongtobeat.com/game/130122",
+        "protagonista": "/img/P5XP.png",
+        "imagem": "/img/P5X_Logo.png",
+        "Consoles": "PC, Android, iOS",
+        "bubble_icon": "/img/P5X_Logo.png"
+      }
+    ]
+  }
+]
